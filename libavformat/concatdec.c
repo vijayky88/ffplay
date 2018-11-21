@@ -525,6 +525,7 @@ static int open_next_file(AVFormatContext *avf)
 
     if (++fileno >= cat->nb_files) {
         cat->eof = 1;
+        cat->seekable = 1;
         return AVERROR_EOF;
     }
     return open_file(avf, fileno);
